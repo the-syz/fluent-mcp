@@ -171,4 +171,8 @@ git status --short
 
 ## 许可
 
-本项目不包含 Ansys Fluent 软件本体，也不提供 Fluent license。使用 Fluent、PyFluent 和相关示例文件时，请遵守 Ansys 的许可条款。
+本项目代码、测试、文档和项目脚本默认使用 [MIT License](LICENSE)。
+
+本项目不包含 Ansys Fluent 软件本体，也不提供 Fluent license。Ansys Fluent、PyFluent、相关商标和许可由 Ansys 的相应条款约束。
+
+`cases/` 下的 Fluent case/mesh 文件用于 smoke test 和诊断互操作测试，可能仍受其原始软件、厂商或示例数据条款约束。使用或再分发这些文件前，请确认你的使用场景符合相应许可。更多说明见 [NOTICE](NOTICE)。

@@ -1,0 +1,14 @@
+Licensing notice
+================
+
+The MIT License in LICENSE applies to this project's source code, tests,
+documentation, and project scripts unless a file states otherwise.
+
+This repository does not include or license Ansys Fluent itself, Ansys
+licenses, PyFluent, or Ansys trademarks. Use of Ansys Fluent and PyFluent is
+governed by the applicable Ansys terms and by the user's own Ansys license.
+
+The Fluent case and mesh files under cases/ are included for smoke testing and
+diagnostic interoperability with this MCP server. They may be subject to their
+original software, vendor, or example-data terms. Verify that your use and
+redistribution of those files is permitted in your own context.
