@@ -1,0 +1,73 @@
+# Python environments and packaging
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# IDE and OS metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Fluent generated files and run artifacts
+runs/
+fluent-*.trn
+fluent-*.log
+*.trn
+*.jou~
+*.out
+*.err
+*.tmp
+
+# Temporary verification projects
+_mcp_verify_project/
+_mcp_batch_verify_project/
+_mcp_batch_timeout_verify_project/
+_pyfluent_mixing_elbow_test/
+_pyfluent_v241_test/
+_pyfluent_v252_test/
+
+# Local learning material and private research notes
+docs/
+notebooks/
+literature_notes/
+papers/
+引导学习计划书.md
+详细项目设计.md
+
+# Keep only the selected public sample case.
+cases/**
+!cases/
+!cases/official/
+!cases/official/noz_anim-1-00640.cas
+!cases/official/noz_anim-1-00640.dat
+
+# Keep only lightweight examples intended for the public repo.
+examples/**
+!examples/
+!examples/fluent_smoke/
+!examples/fluent_smoke/read_mesh_check.jou
+
+# Local post-processing experiments.
+scripts/
+
+# Heavy or local Fluent case formats outside the allowlisted sample above.
+*.cas
+*.dat
+*.cas.h5
+*.dat.h5
+*.msh.h5
+!cases/official/noz_anim-1-00640.cas
+!cases/official/noz_anim-1-00640.dat

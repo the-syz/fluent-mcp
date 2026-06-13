@@ -1,0 +1,35 @@
+[project]
+name = "fluent-research-mcp"
+version = "0.1.0"
+description = "用于 Fluent/PyFluent 科研流程审计与复现的本地 MCP server。"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp[cli]>=1.0",
+  "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+fluent = [
+  "ansys-fluent-core",
+  "ansys-fluent-visualization",
+  "pyvista",
+  "matplotlib",
+]
+test = [
+  "pytest",
+]
+learn = [
+  "jupyter",
+  "ipykernel",
+  "nbformat",
+  "nbclient",
+]
+
+[project.scripts]
+fluent-research-mcp = "fluent_research_mcp.server:main"
+fluent-run-case = "fluent_research_mcp.run_case:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

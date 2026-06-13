@@ -1,0 +1,4 @@
+/file/read-mesh "C:/Program Files/ANSYS Inc/v251/fluent/fluent25.1.0/cortex/resources/templates/prjapp/aet/FARFIELD-SYMMS.msh.h5"
+/mesh/check
+/file/write-case "F:/fluent-mcp/examples/fluent_smoke/results/farfield_check.cas.h5"
+/exit yes

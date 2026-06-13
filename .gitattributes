@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.cas binary
+*.dat binary
+*.cas.h5 binary
+*.dat.h5 binary
+*.msh.h5 binary
+*.png binary
+*.pdf binary
