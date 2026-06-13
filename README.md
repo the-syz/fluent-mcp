@@ -115,7 +115,7 @@ python -m fluent_research_mcp.run_case F:\fluent-mcp cases\official\noz_anim-1-0
 
 ## 冒烟测试
 
-`examples/fluent_smoke/read_mesh_check.jou` 是一个最小化 Fluent journal，用来验证 Fluent 能读取仓库中的示例算例并执行网格检查。
+`examples/fluent_smoke/read_mesh_check.jou` 是一个最小化 Fluent journal，用来验证 Fluent 能读取仓库中的示例 case/data，并执行网格检查。
 
 从仓库根目录启动 Fluent batch 时可以使用：
 
@@ -128,6 +128,8 @@ fluent 3ddp -g -i examples\fluent_smoke\read_mesh_check.jou
 ```powershell
 & 'E:\Program Files\ANSYS Inc\v252\fluent\ntbin\win64\fluent.exe' 3ddp -g -i examples\fluent_smoke\read_mesh_check.jou
 ```
+
+这个冒烟测试适合做分层诊断：如果 Fluent 在读取算例前退出，通常是 Fluent 路径、license 或启动环境问题；如果已经进入 `/file/read-case` 或 `/file/read-data` 后失败，再优先检查算例文件、版本兼容性或文件路径。
 
 ## 开发
 
@@ -144,3 +146,4 @@ git status --short
 ```
 
 当前公开仓库的目标范围是 MCP 源码、测试、一个最小化 Fluent 示例、一个官方示例算例和必要的项目配置。个人学习资料、Notebook、论文 PDF、运行结果和实验性算例建议继续保留在本地。
+

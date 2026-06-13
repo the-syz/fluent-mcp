@@ -1,3 +1,4 @@
 /file/read-case "cases/official/noz_anim-1-00640.cas"
+/file/read-data "cases/official/noz_anim-1-00640.dat"
 /mesh/check
 /exit yes
