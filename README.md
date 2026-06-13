@@ -28,7 +28,7 @@
 .
 ├── src/fluent_research_mcp/     # MCP server 和 Fluent 工作流工具
 ├── tests/                       # 单元测试
-├── cases/official/              # 可用于诊断的 Fluent 示例算例
+├── cases/pyfluent_mixing_elbow/ # 可用于诊断的 Fluent 示例算例
 ├── examples/fluent_smoke/       # 最小化 Fluent batch 冒烟测试
 ├── pyproject.toml               # Python 包配置
 ├── requirements.txt             # 最小运行依赖
@@ -112,19 +112,19 @@ FLUENT_PATH = 'C:\\Program Files\\ANSYS Inc\\v252\\fluent\\ntbin\\win64\\fluent.
 
 ## 示例算例
 
-仓库提供一个小型 Fluent case/data，用于验证 Fluent 启动、算例读取和基础网格检查：
+仓库提供一个可复现的 Fluent mixing elbow 示例算例，用于验证 Fluent 启动、算例读取和基础网格检查：
 
 ```text
-cases/official/noz_anim-1-00640.cas
-cases/official/noz_anim-1-00640.dat
+cases/pyfluent_mixing_elbow/mixing_elbow.cas.h5
+cases/pyfluent_mixing_elbow/mixing_elbow.msh.h5
 ```
 
-该算例是真实 Fluent case/data 文件，不是占位文件。它是否能完成求解仍取决于本机 Fluent 版本、license、维度参数和求解设置。
+该算例是真实 Fluent case/mesh 文件，不是占位文件。当前 smoke journal 已在 Fluent 2025 R2、`3ddp`、单进程 batch 模式下完成读取和 `/mesh/check`。
 
 使用 MCP 命令行入口执行一次 batch 求解：
 
 ```powershell
-python -m fluent_research_mcp.run_case . cases\official\noz_anim-1-00640.cas --data-file cases\official\noz_anim-1-00640.dat --backend batch --fluent-dimension 3ddp --processor-count 1 --iterations 10
+python -m fluent_research_mcp.run_case . cases\pyfluent_mixing_elbow\mixing_elbow.cas.h5 --backend batch --fluent-dimension 3ddp --processor-count 1 --iterations 10
 ```
 
 运行产物会写入 `runs/<run_id>/`，包括输入快照、journal、日志、状态文件、摘要和报告。`runs/` 属于生成物，默认不提交。
@@ -134,8 +134,7 @@ python -m fluent_research_mcp.run_case . cases\official\noz_anim-1-00640.cas --d
 `examples/fluent_smoke/read_mesh_check.jou` 是一个最小化 Fluent journal：
 
 ```scheme
-/file/read-case "cases/official/noz_anim-1-00640.cas"
-/file/read-data "cases/official/noz_anim-1-00640.dat"
+/file/read-case "cases/pyfluent_mixing_elbow/mixing_elbow.cas.h5"
 /mesh/check
 /exit yes
 ```
@@ -152,7 +151,7 @@ fluent 3ddp -g -i examples\fluent_smoke\read_mesh_check.jou
 & 'C:\Program Files\ANSYS Inc\v252\fluent\ntbin\win64\fluent.exe' 3ddp -g -i examples\fluent_smoke\read_mesh_check.jou
 ```
 
-这个测试适合做分层诊断：如果 Fluent 在读取算例前退出，优先检查 Fluent 路径、license 或启动环境；如果进入 `/file/read-case` 或 `/file/read-data` 后失败，再检查算例文件、版本兼容性或路径。
+这个测试适合做分层诊断：如果 Fluent 在读取算例前退出，优先检查 Fluent 路径、license 或启动环境；如果进入 `/file/read-case` 或 `/mesh/check` 后失败，再检查算例文件、版本兼容性或网格质量。
 
 ## 开发
 

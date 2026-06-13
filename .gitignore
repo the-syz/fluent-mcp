@@ -25,6 +25,7 @@ Thumbs.db
 runs/
 fluent-*.trn
 fluent-*.log
+cleanup-fluent-*.bat
 *.trn
 *.jou~
 *.out
@@ -47,12 +48,12 @@ papers/
 引导学习计划书.md
 详细项目设计.md
 
-# Keep only the selected public sample case.
+# Keep only the selected public diagnostic case.
 cases/**
 !cases/
-!cases/official/
-!cases/official/noz_anim-1-00640.cas
-!cases/official/noz_anim-1-00640.dat
+!cases/pyfluent_mixing_elbow/
+!cases/pyfluent_mixing_elbow/mixing_elbow.cas.h5
+!cases/pyfluent_mixing_elbow/mixing_elbow.msh.h5
 
 # Keep only lightweight examples intended for the public repo.
 examples/**
@@ -69,5 +70,5 @@ scripts/
 *.cas.h5
 *.dat.h5
 *.msh.h5
-!cases/official/noz_anim-1-00640.cas
-!cases/official/noz_anim-1-00640.dat
+!cases/pyfluent_mixing_elbow/mixing_elbow.cas.h5
+!cases/pyfluent_mixing_elbow/mixing_elbow.msh.h5

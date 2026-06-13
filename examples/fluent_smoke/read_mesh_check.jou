@@ -1,4 +1,3 @@
-/file/read-case "cases/official/noz_anim-1-00640.cas"
-/file/read-data "cases/official/noz_anim-1-00640.dat"
+/file/read-case "cases/pyfluent_mixing_elbow/mixing_elbow.cas.h5"
 /mesh/check
 /exit yes
